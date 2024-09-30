@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@400;700&display=swap');
+
+body {
+    font-family: halant, serif;
+    line-height: 1.6;
+    color: rgb(22, 88, 97);
+}
+
+/* CSS para animação de visibilidade */
+.mim, .mim2, .timeline-item {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(50px); /* Move para baixo */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
+}
+
+.mim.visible, .mim2.visible, .timeline-item.visible {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Move para a posição original */
+}
+
+
+.sobre {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(50px); /* Move a seção para baixo */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Define a transição */
+}
+.centralizado {
+    text-align: center;
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 1rem;
+}
+.sobre.visible {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Move para a posição original */
+}
+
+.mim {
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    font-size: 1.1rem; /* Tamanho da fonte para melhor legibilidade */
+    line-height: 1.6; /* Espaçamento entre linhas */
+    color: #000000; /* Cor do texto */
+    background-color: #56c44b; /* Cor de fundo suave */
+    padding: 20px; /* Espaçamento interno */
+    margin: 20px auto; /* Centraliza o bloco e adiciona espaçamento externo */
+    max-width: 800px; /* Limita a largura máxima */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(122, 111, 111, 0.1); /* Adiciona uma sombra suave */
+    text-align: justify; /* Justifica o texto */
+    border: 2px solid #000000;
+}
+
+.mim2 {
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    font-size: 1.1rem; /* Tamanho da fonte para melhor legibilidade */
+    line-height: 1.6; /* Espaçamento entre linhas */
+    color: #000000; /* Cor do texto */
+    background-color: #56c44b; /* Cor de fundo suave */
+    padding: 20px; /* Espaçamento interno */
+    margin: 20px auto; /* Centraliza o bloco e adiciona espaçamento externo */
+    max-width: 800px; /* Limita a largura máxima */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    text-align: justify; /* Justifica o texto */
+    border: 2px solid #000000;
+}
+
+ul {
+    list-style-type: disc; /* Define o marcador como um disco (círculo preenchido) */
+    padding-left: 20px; /* Adiciona um recuo à esquerda para os marcadores */
+}
+
+.formacao ul {
+    margin-left: 20px; /* Espaçamento à esquerda da lista específica */
+}
+
+.formacao li {
+    margin-bottom: 0.5rem; /* Espaçamento entre os itens da lista */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #000000; /* Cor do texto */
+}
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 1200px;
+}
+/* Seção de Experiências */
+#experiencias {
+    padding: 2rem 0;
+}
+
+#experiencias h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #000000; /* Ajuste a cor conforme o tema */
+}
+
+/* Linha central da timeline */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: #000;
+    transform: translateX(-50%);
+}
+
+/* Cada item da timeline */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Itens à esquerda */
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.left .exp-detalhes {
+    margin-right: 20px;
+}
+
+/* Itens à direita */
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item.right .exp-detalhes {
+    margin-left: 20px;
+}
+
+/* Ícone da experiência */
+.exp-icon {
+    position:center;
+    top: -20px; /* Ícones acima da linha */
+    transform: translateY(-50%);
+    width: auto; /* Reduzindo o tamanho do ícone */
+    height: auto; /* Reduzindo o tamanho do ícone */
+    background-color: transparent;
+    border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: transform 0.5s ease; /* Transição suave para rotação */
+}
+.exp-icon img {
+    width: 100px; /* Define o tamanho do ícone */
+    height: auto; /* Mantém a proporção */
+}
+
+/* Ícones à esquerda */
+.timeline-item.left .exp-icon {
+    right: -15px;
+}
+
+/* Ícones à direita */
+.timeline-item.right .exp-icon {
+    left: -15px;
+}
+
+/* Detalhes da experiência */
+.exp-detalhes {
+    padding: 15px;
+    background-color: #56c44b;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.exp-detalhes h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #18421d;
+}
+
+.exp-detalhes span {
+    display: block;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.exp-detalhes p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #000;
+}
+
+/* Animação ao passar o mouse sobre os ícones */
+.exp-icon:hover {
+    transform: rotate(360deg); /* Roda o ícone em 360 graus */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .timeline-item.left, .timeline-item.right {
+        left: 0;
+        text-align: center;
+    }
+
+    .timeline-item.left .exp-icon, .timeline-item.right .exp-icon {
+        position: relative;
+        margin: 0 auto 20px;
+    }
+
+    .timeline-item.left .exp-detalhes, .timeline-item.right .exp-detalhes {
+        margin: 0;
+    }
+
+    .timeline::before {
+        left: 50%;
+    }
+}
+
+
+.skill {
+    text-align: center;
+    width: 120px;
+    padding: 5px; 
+    background-color: #18421d; 
+    border-radius: 5px; 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+    background-color: #020101; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.skill img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3px; /* Ajusta a margem entre o ícone e o nome */
+    transition: transform 1s ease;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+}
+
+.skill:hover img {
+    filter: brightness(1.2);
+    transform: rotateY(360deg);
+}
+
+.skill h3 {
+    margin-top: 10px; /* Ajusta o espaço acima do nome */
+    margin-bottom: 20px; /* Ajusta o espaço abaixo do nome para melhor espaçamento */
+    font-size: 1.2rem; 
+    color: #25ce49; 
+    margin-top: 10px;
+    text-align: center;
+}
+
+.skill.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #000000;
+    font-size: 2rem;
+}
+
+header {
+    background-color: #080707;
+    color: #25ce49;
+    padding: 2rem 20px;
+}
+
+.nome-com-foto {
+    display: flex;
+    align-items: center;
+    color: #25ce49;
+    text-shadow: 3px 3px 6px rgba(rgb(197, 26, 26), green, blue, alpha);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 75%;
+    margin-right: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav h1 {
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem; /* Espaçamento pequeno entre os ícones */
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0; /* Remover margem lateral */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #25ce49; /* Cor dos ícones */
+    font-size: 20px; /* Tamanho do ícone menor */
+    transition: color 0.3s; /* Transição suave para a cor */
+}
+
+nav ul li a:hover {
+    color: #fff; /* Muda a cor ao passar o mouse */
+}
+
+nav ul li img {
+    width: 24px; /* Ajusta o tamanho do ícone */
+    height: auto; /* Mantém a proporção */
+    transition: filter 0.3s; /* Transição suave para o filtro */
+}
+
+nav ul li a:hover img {
+    filter: brightness(0.8); /* Muda o brilho ao passar o mouse */
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 3rem;
+    transition: transform
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.projeto {
+    background-color: #080707;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none; /* Remove a bolinha padrão da lista */
+    padding: 0; /* Remove o padding */
+}
+
+ul li {
+    display: flex; /* Utiliza flexbox para alinhar o ícone e o texto */
+    align-items: center; /* Alinha verticalmente */
+    gap: 0.5rem; /* Espaçamento entre ícone e texto */
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+}
+
+ul li img {
+    width: 24px; /* Ajusta o tamanho do ícone */
+    height: auto; /* Mantém a proporção */
+}
+
+ul li a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #25ce49; /* Cor do texto */
+    transition: color 0.3s; /* Transição suave para a cor */
+}
+
+ul li a:hover {
+    color: #fff; /* Muda a cor ao passar o mouse */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form button:hover {
+    background-color: #3ac21f;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #127e2a;
+    color: rgb(0, 0, 0);
+}
